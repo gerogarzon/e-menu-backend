@@ -4,13 +4,14 @@ const Category = require('../schemas/category.schema');
 async function addCategory(req, res){
     try{
         if(!req.body.name || !req.body.status) {
-            return res.status(400).send({error:'Falta un campo obligatorio'})
+            return res.status(400).json({error:'Falta un campo obligatorio'})
         }
         let newCategory = new Category(req.body);
         await newCategory.save();
-        res.send({categoriaNueva : newCategory});
-    } catch(error){
-        res.status(404).send(error)
+        res.json({categoriaNueva : newCategory});
+    } 
+    catch(error){
+        res.status(404).json(error)
     }
 };
 

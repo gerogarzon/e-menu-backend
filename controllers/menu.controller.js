@@ -8,7 +8,7 @@ async function addMenu(req, res){
         }
         let newMenu = new Menu(req.body);
         await newMenu.save();
-        res.send({menuNuevo : newMenu});
+        res.json({menuNuevo : newMenu});
     } catch(error){
         res.status(404).send(error)
     }
