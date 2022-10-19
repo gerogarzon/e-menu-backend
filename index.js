@@ -1,6 +1,8 @@
 var app = require('./app')
 var port = process.env.PORT || 3100;
-const password = 'Gero5263';
+const password = process.env.MONGO_PASSWORD ;
+
+
 var URL = `mongodb+srv://geronimoGarzon:${password}@cluster0.xrl7p.mongodb.net/?retryWrites=true&w=majority`;
 
 var mongoose = require('mongoose');
